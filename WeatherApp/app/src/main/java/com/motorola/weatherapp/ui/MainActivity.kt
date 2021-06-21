@@ -1,7 +1,8 @@
-package com.motorola.weatherapp
+package com.motorola.weatherapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.motorola.weatherapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
