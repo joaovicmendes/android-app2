@@ -4,7 +4,8 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetrofitClient private constructor() {
+abstract class RetrofitClient {
+
     companion object {
         @Volatile
         private var INSTANCE: Retrofit? = null

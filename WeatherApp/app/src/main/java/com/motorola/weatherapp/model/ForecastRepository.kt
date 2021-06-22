@@ -1,21 +1,13 @@
 package com.motorola.weatherapp.model
 
-import androidx.lifecycle.LiveData
+import com.motorola.weatherapp.fetch.Config
+import com.motorola.weatherapp.fetch.OneCallApiService
+import com.motorola.weatherapp.fetch.RetrofitClient
 
-class ForecastRepository(private val dao: ForecastDao) {
-    fun select(): LiveData<List<Forecast>> {
-        return dao.getAll()
-    }
+class ForecastRepository() {
+    private val retrofit = RetrofitClient.createService(OneCallApiService::class.java)
 
-    suspend fun insert(forecast: Forecast) {
-        dao.insert(forecast)
-    }
-
-    suspend fun update(forecast: Forecast) {
-        dao.update(forecast)
-    }
-
-    suspend fun delete(forecast: Forecast) {
-        dao.delete(forecast)
+    suspend fun fetchWeather(lat: Double, lon: Double): Forecast {
+        return retrofit.fetch(lat, lon, Config.apiKey)
     }
 }
