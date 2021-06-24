@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.motorola.weatherapp.R
 import com.motorola.weatherapp.model.Weather
+import com.motorola.weatherapp.model.WeatherFormater
 import kotlinx.android.synthetic.main.forecast_item.view.*
 
 class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() {
@@ -26,8 +27,8 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() 
     override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
         val curr = weatherList[position]
         holder.itemView.apply {
-            tv_weather_time.text = curr.dt.toString()
-            tv_weather_temp.text = curr.temp.toString()
+            tv_weather_time.text = WeatherFormater.formatTime(curr.dt)
+            tv_weather_temp.text = WeatherFormater.formatTemperature(curr.temp)
         }
     }
 

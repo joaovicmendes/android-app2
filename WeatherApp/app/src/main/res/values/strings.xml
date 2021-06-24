@@ -2,4 +2,6 @@
     <string name="app_name">Weather App</string>
     <string name="last_updated_at">Last updated at</string>
     <string name="location">Location</string>
+    <string name="daily_forecast">Daily Forecast</string>
+    <string name="hourly_forecast">Hourly Forecast</string>
 </resources>

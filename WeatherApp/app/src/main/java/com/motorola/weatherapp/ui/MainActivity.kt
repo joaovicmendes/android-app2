@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.motorola.weatherapp.R
 import com.motorola.weatherapp.adapter.WeatherAdapter
+import com.motorola.weatherapp.model.WeatherFormater
 import com.motorola.weatherapp.viewmodel.ForecastViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -36,8 +37,8 @@ class MainActivity : AppCompatActivity() {
 
         forecastViewModel = ViewModelProvider(this).get(ForecastViewModel::class.java)
         forecastViewModel!!.forecast.observe(this, { forecast ->
-            tv_curr_forecast_temp.text = forecast.current.temp.toString()
-            tv_curr_forecast_time.text = forecast.current.dt.toString()
+            tv_curr_forecast_temp.text = WeatherFormater.formatTemperature(forecast.current.temp)
+            tv_curr_forecast_time.text = WeatherFormater.formatTime(forecast.current.dt)
             hourlyAdapter.setList(forecast.hourly)
             dailyAdapter.setList(forecast.daily)
         })
