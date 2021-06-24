@@ -18,32 +18,65 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_last_updated"
+        android:id="@+id/tv_curr_forecast_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/last_updated_at"
+        android:text="24˚C"
+        android:textSize="64sp"
+        android:paddingTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_location" />
 
     <TextView
-        android:id="@+id/tv_curr_forecast"
+        android:id="@+id/tv_curr_forecast_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="24˚C"
-        android:textSize="64sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="9:41AM"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_location" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_curr_forecast_temp" />
 
     <TextView
-        android:id="@+id/tv_next_forecast"
+        android:id="@+id/tv_hourly_forecast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="25˚C"
-        android:textSize="32sp"
+        android:text="Hourly Forecast"
+        android:paddingTop="32dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_curr_forecast" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_curr_forecast_time" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_hourly_forecast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hourly_forecast" />
+
+    <TextView
+        android:id="@+id/tv_daily_forecast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="32dp"
+        android:text="Daily Forecast"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_hourly_forecast" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_daily_forecast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_daily_forecast" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
