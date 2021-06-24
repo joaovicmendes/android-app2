@@ -1,6 +1,5 @@
 package com.motorola.weatherapp.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,9 +17,7 @@ class ForecastViewModel : ViewModel() {
         val lat = -22.016720
         val lon = -47.891972
         viewModelScope.launch(Dispatchers.IO) {
-            val response = repository.fetchWeather(lat, lon)
-            Log.d(null, response.toString())
-            forecast.postValue(response)
+            forecast.postValue(repository.fetchWeather(lat, lon))
         }
     }
 }
