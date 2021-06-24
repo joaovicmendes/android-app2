@@ -1,6 +1,7 @@
 package com.motorola.weatherapp.fetch
 
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -12,7 +13,10 @@ abstract class RetrofitClient {
         private const val baseUrl = Config.baseUrl
 
         private fun getInstance(): Retrofit {
-            val httpClient = OkHttpClient.Builder()
+            val interceptor = HttpLoggingInterceptor().apply {
+                this.level = HttpLoggingInterceptor.Level.BODY
+            }
+            val httpClient = OkHttpClient.Builder().addInterceptor(interceptor)
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance

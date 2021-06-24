@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.motorola.weatherapp.R
+import com.motorola.weatherapp.adapter.DailyWeatherAdapter
 import com.motorola.weatherapp.adapter.WeatherAdapter
 import com.motorola.weatherapp.model.WeatherFormater
 import com.motorola.weatherapp.viewmodel.ForecastViewModel
@@ -12,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private var hourlyAdapter = WeatherAdapter()
-    private var dailyAdapter = WeatherAdapter()
+    private var dailyAdapter = DailyWeatherAdapter()
     private var forecastViewModel: ForecastViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

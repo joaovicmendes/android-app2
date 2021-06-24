@@ -11,6 +11,6 @@ interface OneCallApiService {
         @Query("lon") lon: Double = -47.891972,
         @Query("appid") appid: String = "",
         @Query("exclude") exclude: String = "minutely",
-        @Query("unit") unit: String = "metric"
+        @Query("units") unit: String = "metric"
     ): Forecast
 }
