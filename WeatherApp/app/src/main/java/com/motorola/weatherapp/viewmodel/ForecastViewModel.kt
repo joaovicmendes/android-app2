@@ -17,7 +17,7 @@ class ForecastViewModel : ViewModel() {
         val lat = -22.016720
         val lon = -47.891972
         viewModelScope.launch(Dispatchers.IO) {
-            forecast.value = repository.fetchWeather(lat, lon)
+            forecast.postValue(repository.fetchWeather(lat, lon))
         }
     }
 }
